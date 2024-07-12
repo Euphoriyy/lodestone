@@ -281,15 +281,15 @@ pub async fn get_paper_jar_url(
         builds.find(|build| build.get("build").unwrap().as_i64().unwrap().eq(b))?
     } else {
         builds
-            .filter(|build| {
-                build
-                    .get("channel")
-                    .unwrap()
-                    .as_str()
-                    .unwrap()
-                    .to_string()
-                    .eq("default")
-            })
+            // .filter(|build| {
+            //     build
+            //         .get("channel")
+            //         .unwrap()
+            //         .as_str()
+            //         .unwrap()
+            //         .to_string()
+            //         .eq("default")
+            // })
             .max_by(|a, b| {
                 let a = a.get("build").unwrap().as_i64().unwrap();
                 let b = b.get("build").unwrap().as_i64().unwrap();
